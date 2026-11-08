@@ -33,8 +33,9 @@ export function MainInput() {
         }
 
         const newUrl = params.toString() ? `${pathname}?${params.toString()}` : pathname
-        // Передаем window.history.state (а не null!), чтобы не затереть служебный стейт Next.js (__NA)
-        window.history.replaceState(window.history.state, '', newUrl)
+        // Передаем null: Next.js сам скопирует свой стейт через copyNextJsInternalHistoryState(null)
+        // и обновит useSearchParams() (если передать window.history.state с __NA: true, Next.js проигнорирует обновление)
+        window.history.replaceState(null, '', newUrl)
     }, [debouncedSearch, pathname, searchParams])
 
     function clearText() {
