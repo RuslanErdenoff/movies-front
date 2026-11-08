@@ -7,4 +7,15 @@
     padding-bottom: 80px;
     gap: 8px;
     min-height: 100dvh;
+    margin: 0 auto;
+    /* центрирует блок по горизонтали */
+    max-width: 1280px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .main-layout {
+        padding: 24px 32px 100px;
+        gap: 16px;
+    }
 }

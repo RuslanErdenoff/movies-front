@@ -29,3 +29,14 @@
     z-index: 50;
     box-sizing: border-box;
 }
+
+@media (min-width: 768px) {
+    .movie-watch-button-container {
+        max-width: 480px;
+        margin: 0 auto;
+        bottom: 20px;
+        border-radius: 16px;
+        border: 1px solid #27272a;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+}

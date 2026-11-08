@@ -9,6 +9,13 @@
     transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
+/*срабатывает только на устройствах с мышкой/трекпадом, не мешая тач-экранам*/
+@media (hover: hover) {
+    .movie-card-root:hover {
+        transform: translateY(-4px);
+    }
+}
+
 .movie-card-root:active {
     transform: scale(0.96);
     opacity: 0.75;

@@ -24,3 +24,16 @@
 .bottom-nav-item.active {
     color: #f59e0b;
 }
+
+@media (min-width: 768px) {
+    .bottom-nav {
+        max-width: 420px;
+        margin: 0 auto;
+        bottom: 20px;
+        border-radius: 999px;
+        border: 1px solid #27272a;
+        background-color: rgba(24, 24, 27, 0.9);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+}
