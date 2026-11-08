@@ -1,0 +1,13 @@
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 16px;
+    padding: 16px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.movie-list-container {
+    display: flex;
+    flex-direction: column;
+}

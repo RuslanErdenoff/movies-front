@@ -1,0 +1,46 @@
+.movie-card-root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    min-width: 0;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.movie-card-root:active {
+    transform: scale(0.96);
+    opacity: 0.75;
+}
+
+.movie-card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+.movie-card-favorite {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.movie-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-card-info-name {
+    font-size: 24px;
+    line-height: 100%;
+    overflow-wrap: break-word;
+}
+
+.movie-card-info-additional {
+    color: gray;
+}

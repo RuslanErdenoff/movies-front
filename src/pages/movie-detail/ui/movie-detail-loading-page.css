@@ -1,0 +1,77 @@
+.movie-detail-loading {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 150px;
+}
+
+.movie-detail-loading-hero {
+    width: 100%;
+    height: 50dvh;
+    background-color: #18181B;
+}
+
+.movie-detail-loading-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 24px 24px;
+}
+
+.movie-detail-loading-title {
+    width: 65%;
+    height: 32px;
+    border-radius: 8px;
+    background-color: #1B1C20;
+}
+
+.movie-detail-loading-meta {
+    width: 45%;
+    height: 16px;
+    border-radius: 6px;
+    background-color: #1B1C20;
+}
+
+.movie-detail-loading-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 24px;
+    padding: 16px;
+    background-color: #1B1C20;
+    border-radius: 20px;
+}
+
+.movie-detail-loading-card-title {
+    width: 120px;
+    height: 24px;
+    border-radius: 6px;
+    background-color: #27272A;
+    margin-bottom: 4px;
+}
+
+.movie-detail-loading-line {
+    width: 100%;
+    height: 14px;
+    border-radius: 4px;
+    background-color: #27272A;
+}
+
+.movie-detail-loading-line.short {
+    width: 70%;
+}
+
+@keyframes skeletonPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.45;
+    }
+}
+
+.skeleton-pulse {
+    animation: skeletonPulse 1.4s ease-in-out infinite;
+}

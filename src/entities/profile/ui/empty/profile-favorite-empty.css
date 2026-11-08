@@ -1,0 +1,33 @@
+.profile-favorite-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 32px 16px;
+    background-color: #18181B;
+    border: 1px solid #27272A;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.profile-favorite-empty-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.profile-favorite-empty-subtitle {
+    font-size: 14px;
+    color: #A1A1AA;
+}
+
+.profile-favorite-empty-link {
+    margin-top: 4px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background-color: #F59E0B;
+    color: #09090B;
+    font-size: 14px;
+    font-weight: 700;
+}

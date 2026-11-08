@@ -1,0 +1,22 @@
+.genre-card-root {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 16px;
+    background-color: #1B1C20;
+    border-radius: 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.genre-card-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.genre-card-arrow {
+    font-size: 18px;
+    color: #A7A6A9;
+}

@@ -1,0 +1,57 @@
+.profile-user-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 32px;
+    padding: 44px 16px 20px;
+    background-color: #18181B;
+    border: 1px solid #27272A;
+    border-radius: 16px;
+}
+
+.profile-user-avatar {
+    position: absolute;
+    top: -32px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #27272A;
+    border: 3px solid #09090B;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-user-avatar-letter {
+    font-size: 24px;
+    font-weight: 700;
+    color: #FBBF24;
+}
+
+.profile-user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+}
+
+.profile-user-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.profile-user-status {
+    font-size: 14px;
+    color: #A1A1AA;
+}

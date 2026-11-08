@@ -1,0 +1,13 @@
+.favorite-button {
+    display: flex;
+    align-items: center;
+    /* Центрируем сердечко по вертикали */
+    justify-content: center;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    padding: 8px;
+    background-color: black;
+    cursor: pointer;
+    user-select: none;
+}
