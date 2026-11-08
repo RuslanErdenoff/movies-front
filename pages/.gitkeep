@@ -1,0 +1,2 @@
+# This empty folder is required for Feature-Sliced Design (FSD) compatibility with Next.js App Router
+# so Next.js does not mistake src/pages for the Pages Router.
