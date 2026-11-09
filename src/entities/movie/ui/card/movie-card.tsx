@@ -1,9 +1,6 @@
-
-import { FavoriteIcon } from '@/shared/ui/favorite/favorite'
 import './movie-card.css'
 import Link from 'next/link'
 import { MovieRating } from '../rating/movie-rating'
-import { FavoriteButton } from '@/features/favorite/ui/favorite_button'
 import { MovieSnippetEntity } from '../../model/movie.types'
 
 
@@ -15,21 +12,22 @@ function MovieCardRoot({ movie, children }: { movie: MovieSnippetEntity, childre
     )
 }
 
-function MovieCardImage({ movie }: { movie: MovieSnippetEntity }) {
+function MovieCardImage({
+    movie,
+    actionSlot,
+}: {
+    movie: MovieSnippetEntity
+    actionSlot?: React.ReactNode
+}) {
     return (
         <div className="movie-card-image">
             <img src={movie.posterUrl} alt={movie.title} />
             <MovieRating rate={movie.rating} variant='card' />
-            <MovieCardFavorite movie={movie} />
-        </div>
-    )
-}
-
-
-function MovieCardFavorite({ movie }: { movie: MovieSnippetEntity }) {
-    return (
-        <div className="movie-card-favorite">
-            <FavoriteButton movie={movie} />
+            {actionSlot && (
+                <div className="movie-card-favorite">
+                    {actionSlot}
+                </div>
+            )}
         </div>
     )
 }
@@ -58,10 +56,16 @@ function MovieCardInfo({ movie }: { movie: MovieSnippetEntity }) {
     )
 }
 
-export function MovieCard({ movie }: { movie: MovieSnippetEntity }) {
+export function MovieCard({
+    movie,
+    actionSlot,
+}: {
+    movie: MovieSnippetEntity
+    actionSlot?: React.ReactNode
+}) {
     return (
         <MovieCardRoot movie={movie}>
-            <MovieCardImage movie={movie} />
+            <MovieCardImage movie={movie} actionSlot={actionSlot} />
             <MovieCardInfo movie={movie} />
         </MovieCardRoot>
     )

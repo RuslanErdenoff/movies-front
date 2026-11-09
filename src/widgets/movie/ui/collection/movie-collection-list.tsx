@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import { MovieCard } from "@/entities/movie/ui/card/movie-card"
 import { CollectionType } from "@/entities/collections/model/collections.types"
 import { collectionsQO } from "@/entities/collections/api/collections.options"
+import { FavoriteButton } from "@/features/favorite/ui/favorite-button"
 import "../list/movie-list.css"
 
 export function MovieCollectionList({ type }: { type: CollectionType }) {
@@ -45,7 +46,11 @@ export function MovieCollectionList({ type }: { type: CollectionType }) {
         <div className="movie-list-container">
             <div className="movie-list">
                 {movies.map((movie, index) => (
-                    <MovieCard key={`${movie.id}-${index}`} movie={movie} />
+                    <MovieCard
+                        key={`${movie.id}-${index}`}
+                        movie={movie}
+                        actionSlot={<FavoriteButton movie={movie} />}
+                    />
                 ))}
             </div>
             <div ref={paginationTargetRef} style={{ height: 20 }}></div>

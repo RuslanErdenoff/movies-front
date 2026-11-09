@@ -2,7 +2,7 @@
 
 import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, googleProvider } from "@/shared/api/firebase";
-import { useAuthContext } from "@/app/providers/auth-provider";
+import { useAuthContext } from "./auth-context";
 
 export function useAuth() {
     const { user, isLoading } = useAuthContext();

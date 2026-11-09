@@ -1,7 +1,7 @@
 'use client'
 
 import { useAuth } from "../model/auth.hooks";
-import "./auth_button.css";
+import "./auth-button.css";
 
 type AuthButtonProps = {
     onLoginSuccess?: () => Promise<unknown> | void;

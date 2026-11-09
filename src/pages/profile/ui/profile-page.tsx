@@ -2,8 +2,9 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/features/auth/model/auth.hooks";
-import { favoritesQO } from "@/features/favorite/api/favorite_options";
-import { useSyncFavorites } from "@/features/favorite/model/favorite_hooks";
+import { AuthButton } from "@/features/auth/ui/auth-button";
+import { favoritesQO } from "@/features/favorite/api/favorite.options";
+import { useSyncFavorites } from "@/features/favorite/model/favorite.hooks";
 import { ProfileTitle } from "@/entities/profile/ui/title/profile-title";
 import { ProfileUserCard } from "@/entities/profile/ui/card/profile-user-card";
 import { ProfileStats } from "@/entities/profile/ui/stats/profile-stats";
@@ -20,8 +21,12 @@ export function ProfilePage() {
             <ProfileTitle />
             <ProfileUserCard
                 user={user}
-                onLoginSuccess={syncOnLogin}
-                onLogoutSuccess={resetOnLogout}
+                actionSlot={
+                    <AuthButton
+                        onLoginSuccess={syncOnLogin}
+                        onLogoutSuccess={resetOnLogout}
+                    />
+                }
             />
             <ProfileStats favoritesCount={favoriteMovies.length} />
             <MovieFavoriteList movies={favoriteMovies} />

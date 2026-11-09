@@ -7,7 +7,8 @@ import { Fragment, useEffect, useRef } from "react"
 import { useSearchParams } from "next/navigation"
 import { searchQueryName } from "@/features/main/ui/main-search"
 import { COLLECTION_TYPES } from "@/entities/collections/model/collections.types"
-import { CollectionRow } from "@/entities/collections/ui/row/collection-row"
+import { FavoriteButton } from "@/features/favorite/ui/favorite-button"
+import { CollectionRow } from "../collection/collection-row"
 
 
 
@@ -63,7 +64,10 @@ export function MovieCardList() {
 
                     return (
                         <Fragment key={`${movie.id}-${index}`}>
-                            <MovieCard movie={movie} />
+                            <MovieCard
+                                movie={movie}
+                                actionSlot={<FavoriteButton movie={movie} />}
+                            />
                             {isTenthMovie && (
                                 <CollectionRow type={collectionType} />
                             )}

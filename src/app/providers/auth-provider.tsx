@@ -1,20 +1,11 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { onAuthStateChanged, User } from "firebase/auth";
 import { useQueryClient } from "@tanstack/react-query";
 import { auth } from "@/shared/api/firebase";
-import { favoritesQO } from "@/features/favorite/api/favorite_options";
-
-type AuthContextValue = {
-    user: User | null;
-    isLoading: boolean;
-};
-
-const AuthContext = createContext<AuthContextValue>({
-    user: null,
-    isLoading: true,
-});
+import { favoritesQO } from "@/features/favorite/api/favorite.options";
+import { AuthContext } from "@/features/auth/model/auth-context";
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [user, setUser] = useState<User | null>(null);
@@ -44,8 +35,4 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             {children}
         </AuthContext.Provider>
     );
-}
-
-export function useAuthContext() {
-    return useContext(AuthContext);
 }

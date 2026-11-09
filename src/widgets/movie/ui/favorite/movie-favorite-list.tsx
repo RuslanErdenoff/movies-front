@@ -3,6 +3,7 @@
 import { MovieCard } from "@/entities/movie/ui/card/movie-card";
 import { MovieSnippetEntity } from "@/entities/movie/model/movie.types";
 import { ProfileFavoriteEmpty } from "@/entities/profile/ui/empty/profile-favorite-empty";
+import { FavoriteButton } from "@/features/favorite/ui/favorite-button";
 import "../list/movie-list.css";
 import "./movie-favorite-list.css";
 
@@ -16,7 +17,11 @@ export function MovieFavoriteList({ movies }: { movies: MovieSnippetEntity[] }) 
                 <div className="movie-list-container">
                     <div className="movie-list">
                         {movies.map((movie) => (
-                            <MovieCard key={movie.id} movie={movie} />
+                            <MovieCard
+                                key={movie.id}
+                                movie={movie}
+                                actionSlot={<FavoriteButton movie={movie} />}
+                            />
                         ))}
                     </div>
                 </div>

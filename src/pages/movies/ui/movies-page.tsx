@@ -7,7 +7,7 @@ import { movieQO } from "@/entities/movie/api/movie.options"
 import { collectionsQO } from "@/entities/collections/api/collections.options"
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query"
 import { cookies } from "next/headers"
-import { favoritesQO } from "@/features/favorite/api/favorite_options"
+import { favoritesQO } from "@/features/favorite/api/favorite.options"
 
 export async function MoviesPage({ query = "" }: { query?: string }) {
     const cookieStore = await cookies()

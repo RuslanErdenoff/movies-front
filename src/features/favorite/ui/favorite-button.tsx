@@ -2,7 +2,7 @@
 
 import { FavoriteIcon } from "@/shared/ui/favorite/favorite";
 import { MovieSnippetEntity } from "@/entities/movie/model/movie.types";
-import { useIsFavorite, useToggleFavorite } from "../model/favorite_hooks";
+import { useIsFavorite, useToggleFavorite } from "../model/favorite.hooks";
 
 export function FavoriteButton({ movie }: { movie: MovieSnippetEntity }) {
     const { data: isFavorite = false } = useIsFavorite(movie.id)

@@ -1,7 +1,6 @@
 'use client'
 
 import { User } from "firebase/auth";
-import { AuthButton } from "@/features/auth/ui/auth_button";
 import "./profile-user-card.css";
 
 function ProfileUserCardRoot({ children }: { children: React.ReactNode }) {
@@ -43,12 +42,10 @@ function ProfileUserInfo({ title, subtitle }: { title: string, subtitle: string 
 
 export function ProfileUserCard({
     user,
-    onLoginSuccess,
-    onLogoutSuccess,
+    actionSlot,
 }: {
     user: User | null;
-    onLoginSuccess?: () => Promise<unknown> | void;
-    onLogoutSuccess?: () => Promise<unknown> | void;
+    actionSlot?: React.ReactNode;
 }) {
     const title = user ? (user.displayName || user.email || "Руслан") : "Гость";
     const subtitle = user
@@ -59,10 +56,7 @@ export function ProfileUserCard({
         <ProfileUserCardRoot>
             <ProfileUserAvatar user={user} />
             <ProfileUserInfo title={title} subtitle={subtitle} />
-            <AuthButton
-                onLoginSuccess={onLoginSuccess}
-                onLogoutSuccess={onLogoutSuccess}
-            />
+            {actionSlot}
         </ProfileUserCardRoot>
     )
 }

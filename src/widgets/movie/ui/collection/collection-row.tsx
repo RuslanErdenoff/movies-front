@@ -4,8 +4,9 @@ import Link from 'next/link'
 import { useQuery } from '@tanstack/react-query'
 import { MovieCard } from '@/entities/movie/ui/card/movie-card'
 import { MovieSnippetEntity } from '@/entities/movie/model/movie.types'
-import { COLLECTIONS_META, CollectionType } from '../../model/collections.types'
-import { collectionsQO } from '../../api/collections.options'
+import { COLLECTIONS_META, CollectionType } from '@/entities/collections/model/collections.types'
+import { collectionsQO } from '@/entities/collections/api/collections.options'
+import { FavoriteButton } from '@/features/favorite/ui/favorite-button'
 import './collection-row.css'
 
 function CollectionRowRoot({ children }: { children: React.ReactNode }) {
@@ -43,7 +44,10 @@ function CollectionRowScroll({ movies, type }: { movies: MovieSnippetEntity[], t
         <div className="collection-row-scroll">
             {movies.map((movie) => (
                 <div key={movie.id} className="collection-row-card">
-                    <MovieCard movie={movie} />
+                    <MovieCard
+                        movie={movie}
+                        actionSlot={<FavoriteButton movie={movie} />}
+                    />
                 </div>
             ))}
             <CollectionRowSeeAll type={type} />

@@ -2,7 +2,7 @@ import { AppBar, AppBarBackArrow } from "@/shared/ui/app-bar/app-bar";
 import { MovieDetailHero } from "@/entities/movie/ui/details/movie-detail-hero";
 import { MovieDetails } from "@/entities/movie/ui/details/movie-details";
 import { MovieWatchButton } from "@/entities/movie/ui/details/movie-watch-button";
-import { FavoriteButton } from "@/features/favorite/ui/favorite_button";
+import { FavoriteButton } from "@/features/favorite/ui/favorite-button";
 import { mapMovieDetailsToSnippet } from "@/entities/movie/model/movie-detail.types";
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
 import { movieQO } from "@/entities/movie/api/movie.options";

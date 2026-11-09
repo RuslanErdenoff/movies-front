@@ -3,6 +3,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { movieQO } from "@/entities/movie/api/movie.options";
 import { useEffect, useRef } from "react";
 import { MovieCard } from "@/entities/movie/ui/card/movie-card";
+import { FavoriteButton } from "@/features/favorite/ui/favorite-button";
 import "../list/movie-list.css";
 import "./movie-similar-list.css"
 
@@ -48,7 +49,11 @@ export function MovieSimilarList({ movieId }: { movieId: string }) {
             <div className="movie-list-container">
                 <div className="movie-list" >
                     {similarMovies.map(movie => (
-                        <MovieCard key={movie.id} movie={movie} />
+                        <MovieCard
+                            key={movie.id}
+                            movie={movie}
+                            actionSlot={<FavoriteButton movie={movie} />}
+                        />
                     ))}
                 </div>
                 <div ref={paginationTargetRef}></div>

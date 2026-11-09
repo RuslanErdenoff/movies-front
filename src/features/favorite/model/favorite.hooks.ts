@@ -1,7 +1,7 @@
 'use client'
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { favoritesQO, toggleFavoriteMO } from "../api/favorite_options";
+import { favoritesQO, toggleFavoriteMO } from "../api/favorite.options";
 import { MovieSnippetEntity } from "@/entities/movie/model/movie.types";
 
 export type ToggleFavoriteProps = {

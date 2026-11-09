@@ -4,6 +4,7 @@ import { useInfiniteQuery } from "@tanstack/react-query"
 import { useEffect, useRef } from "react"
 import { MovieCard } from "@/entities/movie/ui/card/movie-card"
 import { catalogQO } from "@/entities/catalog/api/catalog.options"
+import { FavoriteButton } from "@/features/favorite/ui/favorite-button"
 import "../list/movie-list.css"
 
 export function MovieCatalogList({ genreId }: { genreId: string }) {
@@ -44,7 +45,11 @@ export function MovieCatalogList({ genreId }: { genreId: string }) {
         <div className="movie-list-container">
             <div className="movie-list">
                 {movies.map((movie, index) => (
-                    <MovieCard key={`${movie.id}-${index}`} movie={movie} />
+                    <MovieCard
+                        key={`${movie.id}-${index}`}
+                        movie={movie}
+                        actionSlot={<FavoriteButton movie={movie} />}
+                    />
                 ))}
             </div>
             <div ref={paginationTargetRef} style={{ height: 20 }}></div>
