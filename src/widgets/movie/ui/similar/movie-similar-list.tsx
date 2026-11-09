@@ -3,8 +3,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { movieQO } from "@/entities/movie/api/movie.options";
 import { useEffect, useRef } from "react";
 import { MovieCard } from "@/entities/movie/ui/card/movie-card";
-import "../list/movie-list.css";
-import "./movie-similar-list.css"
+import { movieListClassName } from "../list/movie-list";
 
 export function MovieSimilarList({ movieId }: { movieId: string }) {
 
@@ -33,7 +32,7 @@ export function MovieSimilarList({ movieId }: { movieId: string }) {
     }, [isFetchingNextPage, hasNextPage, isLoading])
 
     if (isLoading) {
-        return <div className="movie-list">Загрузка фильмов...</div>;
+        return <div className={movieListClassName}>Загрузка фильмов...</div>;
     }
 
     if (isError || !data) {
@@ -43,10 +42,10 @@ export function MovieSimilarList({ movieId }: { movieId: string }) {
     const similarMovies = data.pages.flat();
 
     return similarMovies.length === 0 ? null : (
-        <div className="movie-similar-list">
-            <p>Похожие</p>
-            <div className="movie-list-container">
-                <div className="movie-list" >
+        <div className="flex flex-col mx-6 bg-[#1B1C20] rounded-[20px]">
+            <p className="text-[24px] font-medium text-white pl-6">Похожие</p>
+            <div className="flex flex-col">
+                <div className={movieListClassName} >
                     {similarMovies.map(movie => (
                         <MovieCard key={movie.id} movie={movie} />
                     ))}

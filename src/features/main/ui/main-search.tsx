@@ -1,6 +1,5 @@
 'use client'
 import { ChangeEvent, useEffect, useRef, useState } from "react"
-import './main-search.css'
 import { useDebounce } from "@/shared/lib/hooks/use-debounce";
 import { usePathname, useSearchParams } from "next/navigation";
 
@@ -48,21 +47,21 @@ export function MainInput() {
     }
 
     return (
-        <div className="main-search-container">
-            <span className="search-icon">🔍</span>
+        <div className="relative inline-flex justify-center items-center gap-2 bg-[gray] rounded-[10px] py-2.5 px-3.5">
+            <span className="flex justify-center items-center w-6 h-6 text-sm text-white">🔍</span>
             <input
-                className="main-input"
+                className="text-sm w-screen box-border border-none outline-none bg-transparent text-white placeholder:text-zinc-300"
                 ref={inputRef}
                 type="text"
                 placeholder="Поиск фильмов..."
                 value={search}
-                onChange={(e) => handleSearch(e)} />
+                onChange={(e) => handleSearch(e)}
+            />
             {search.length > 0 && (
-                <button type="button" onClick={clearText}>
+                <button type="button" className="cursor-pointer" onClick={clearText}>
                     ✕
                 </button>
             )}
         </div>
-
     )
 }

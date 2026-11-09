@@ -4,7 +4,7 @@ import { useInfiniteQuery } from "@tanstack/react-query"
 import { useEffect, useRef } from "react"
 import { MovieCard } from "@/entities/movie/ui/card/movie-card"
 import { catalogQO } from "@/entities/catalog/api/catalog.options"
-import "../list/movie-list.css"
+import { movieListClassName } from "../list/movie-list"
 
 export function MovieCatalogList({ genreId }: { genreId: string }) {
     const { data, isLoading, isError, fetchNextPage, hasNextPage, isFetchingNextPage } =
@@ -31,18 +31,18 @@ export function MovieCatalogList({ genreId }: { genreId: string }) {
     }, [isFetchingNextPage, hasNextPage, isLoading, fetchNextPage])
 
     if (isLoading) {
-        return <div className="movie-list">Загрузка фильмов...</div>;
+        return <div className={movieListClassName}>Загрузка фильмов...</div>;
     }
 
     if (isError || !data) {
-        return <div className="movie-list">Ошибка загрузки фильмов</div>;
+        return <div className={movieListClassName}>Ошибка загрузки фильмов</div>;
     }
 
     const movies = data.pages.flat();
 
     return (
-        <div className="movie-list-container">
-            <div className="movie-list">
+        <div className="flex flex-col">
+            <div className={movieListClassName}>
                 {movies.map((movie, index) => (
                     <MovieCard key={`${movie.id}-${index}`} movie={movie} />
                 ))}

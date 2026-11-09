@@ -15,7 +15,10 @@ export function FavoriteButton({ movie }: { movie: MovieSnippetEntity }) {
     };
 
     return (
-        <div onClick={handleClick} className="favorite-button">
+        <div
+            onClick={handleClick}
+            className="flex items-center justify-center rounded-full box-content w-4 h-4 p-2 bg-black cursor-pointer select-none"
+        >
             <FavoriteIcon isActive={isFavorite} />
         </div>
     )

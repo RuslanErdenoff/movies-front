@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import "./bottom-sheet.css";
 
 type BottomSheetProps = {
     isOpen: boolean;
@@ -34,13 +33,25 @@ export function BottomSheet({ isOpen, onClose, title, children }: BottomSheetPro
     }
 
     return createPortal(
-        <div className="bottom-sheet-overlay" onClick={onClose}>
-            <div className="bottom-sheet-content" onClick={(e) => e.stopPropagation()}>
-                <div className="bottom-sheet-handle" />
+        <div
+            className="fixed inset-0 bg-black/75 flex items-end justify-center z-100 md:items-center md:p-6"
+            onClick={onClose}
+        >
+            <div
+                className="w-full max-w-[640px] bg-[#18181B] border-t border-[#27272A] rounded-t-[24px] pt-3 px-5 pb-8 flex flex-col gap-4 box-border md:max-w-[800px] md:rounded-[24px] md:border md:border-[#27272A] md:pt-5 md:px-6 md:pb-6"
+                onClick={(e) => e.stopPropagation()}
+            >
+                <div className="w-10 h-1 rounded-xs bg-[#3F3F46] self-center mb-1 md:hidden" />
                 {title && (
-                    <div className="bottom-sheet-header">
-                        <span className="bottom-sheet-title">{title}</span>
-                        <button type="button" className="bottom-sheet-close" onClick={onClose}>
+                    <div className="flex flex-row items-center justify-between gap-3">
+                        <span className="text-[18px] font-bold text-white overflow-hidden text-ellipsis whitespace-nowrap">
+                            {title}
+                        </span>
+                        <button
+                            type="button"
+                            className="w-8 h-8 rounded-full border-none bg-[#27272A] text-[#A1A1AA] text-sm cursor-pointer shrink-0 flex items-center justify-center"
+                            onClick={onClose}
+                        >
                             ✕
                         </button>
                     </div>

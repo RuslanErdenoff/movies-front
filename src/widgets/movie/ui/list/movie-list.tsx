@@ -1,6 +1,5 @@
 'use client'
 import { MovieCard } from "@/entities/movie/ui/card/movie-card"
-import './movie-list.css'
 import { useInfiniteQuery } from "@tanstack/react-query"
 import { movieQO } from "@/entities/movie/api/movie.options"
 import { Fragment, useEffect, useRef } from "react"
@@ -9,6 +8,7 @@ import { searchQueryName } from "@/features/main/ui/main-search"
 import { COLLECTION_TYPES } from "@/entities/collections/model/collections.types"
 import { CollectionRow } from "@/entities/collections/ui/row/collection-row"
 
+export const movieListClassName = "grid grid-cols-2 gap-4 p-4 box-border w-full sm:grid-cols-3 sm:gap-5 lg:grid-cols-4 lg:gap-6 xl:grid-cols-5"
 
 
 export function MovieCardList() {
@@ -43,19 +43,20 @@ export function MovieCardList() {
         }
     }, [isFetchingNextPage, hasNextPage, cleanQuery, isLoading])
 
+
     if (isLoading) {
-        return <div className="movie-list">Загрузка фильмов...</div>;
+        return <div className={movieListClassName}>Загрузка фильмов...</div>;
     }
 
     if (isError || !data) {
-        return <div className="movie-list">Ошибка загрузки фильмов</div>;
+        return <div className={movieListClassName}>Ошибка загрузки фильмов</div>;
     }
 
     const movies = data.pages.flat();
 
     return (
-        <div className="movie-list-container">
-            <div className="movie-list" >
+        <div className="flex flex-col">
+            <div className={movieListClassName} >
                 {movies.map((movie, index) => {
                     const isTenthMovie = !isSearching && (index + 1) % 10 === 0;
                     const collectionIndex = (Math.floor((index + 1) / 10) - 1) % COLLECTION_TYPES.length;

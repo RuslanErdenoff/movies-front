@@ -1,6 +1,5 @@
 'use client'
 
-import './chip.css'
 type ChipProps = {
     text: string,
     isSelected: boolean,
@@ -9,9 +8,12 @@ type ChipProps = {
 
 export function Chip({ text, isSelected, onClick }: ChipProps) {
     return (
-        <div className={`chip ${isSelected ? 'chip-selected' : ''
+        <div
+            className={`cursor-pointer items-center justify-center py-2 px-4 rounded-[24px] ${
+                isSelected ? 'bg-[gold]' : 'bg-[grey]'
             }`}
-            onClick={onClick}>
+            onClick={onClick}
+        >
             {text}
         </div>
     );

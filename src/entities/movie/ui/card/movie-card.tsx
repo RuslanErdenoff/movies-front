@@ -1,6 +1,5 @@
 
 import { FavoriteIcon } from '@/shared/ui/favorite/favorite'
-import './movie-card.css'
 import Link from 'next/link'
 import { MovieRating } from '../rating/movie-rating'
 import { FavoriteButton } from '@/features/favorite/ui/favorite_button'
@@ -9,7 +8,7 @@ import { MovieSnippetEntity } from '../../model/movie.types'
 
 function MovieCardRoot({ movie, children }: { movie: MovieSnippetEntity, children: React.ReactNode }) {
     return (
-        <Link href={`/movies/${movie.id}`} className="movie-card-root">
+        <Link href={`/movies/${movie.id}`} className="w-full flex flex-col gap-2 cursor-pointer overflow-hidden min-w-0 transition duration-150 ease-in-out hover:-translate-y-1 active:scale-96 active:opacity-75">
             {children}
         </Link>
     )
@@ -17,8 +16,8 @@ function MovieCardRoot({ movie, children }: { movie: MovieSnippetEntity, childre
 
 function MovieCardImage({ movie }: { movie: MovieSnippetEntity }) {
     return (
-        <div className="movie-card-image">
-            <img src={movie.posterUrl} alt={movie.title} />
+        <div className="relative w-full aspect-3/4 rounded-xl overflow-hidden">
+            <img className="w-full h-full object-cover" src={movie.posterUrl} alt={movie.title} />
             <MovieRating rate={movie.rating} variant='card' />
             <MovieCardFavorite movie={movie} />
         </div>
@@ -28,7 +27,7 @@ function MovieCardImage({ movie }: { movie: MovieSnippetEntity }) {
 
 function MovieCardFavorite({ movie }: { movie: MovieSnippetEntity }) {
     return (
-        <div className="movie-card-favorite">
+        <div className="absolute top-2 right-2">
             <FavoriteButton movie={movie} />
         </div>
     )
@@ -37,20 +36,12 @@ function MovieCardFavorite({ movie }: { movie: MovieSnippetEntity }) {
 
 function MovieCardInfo({ movie }: { movie: MovieSnippetEntity }) {
     return (
-        <div className="movie-card-info">
-            <span className="movie-card-info-name">{movie.title}</span>
-            <div style={
-                {
-                    display: 'flex',
-                    flexDirection: 'row',
-                    gap: "8px",
-                    alignItems: 'center',
-                    justifyContent: 'start',
-                }
-            }>
-                <span className="movie-card-info-additional">{movie.year}</span>
-                <span className="movie-card-info-additional">*</span>
-                <span className="movie-card-info-additional">{movie.genre}</span>
+        <div className="flex flex-col gap-1">
+            <span className="text-[24px]/[1] wrap-break-word">{movie.title}</span>
+            <div className="flex flex-row gap-2 items-center justify-start text-[gray]">
+                <span>{movie.year}</span>
+                <span>*</span>
+                <span>{movie.genre}</span>
             </div>
 
 
